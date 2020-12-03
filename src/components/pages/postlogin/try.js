@@ -37,18 +37,6 @@ export default class trys extends React.Component {
 		this.observer.observe(this.loadingRef);
 	}
 
-	/*handleObserver(entities, observer) {
-		const y = entities[0].boundingClientRect.y;
-		console.log('handleObserver  ',y)
-		if (this.state.prevY > y) {
-		const lastPhoto = this.state.photos[this.state.photos.length - 1];
-		const curPage = lastPhoto.albumId;
-		this.getPhotos(curPage);
-		this.setState({ page: curPage });
-		}
-		this.setState({ prevY: y });
-	}*/
-
 	handleObserver(entities, observer) {
 		const y = entities[0].boundingClientRect.y;
 		console.log('handleObserver  ',y)
@@ -60,38 +48,13 @@ export default class trys extends React.Component {
 		this.setState({ prevY: y });
 	}
 
-	/*getPhotos(page) {
-		this.setState({ loading: true });
-		axios
-		.get(
-		`https://jsonplaceholder.typicode.com/photos?_page=${page}&_limit=10`
-		)
-		.then(res => {
-		console.log('jsonplaceholder  ',res)
-		this.setState({ photos: [...this.state.photos, ...res.data] });
-		this.setState({ loading: false });
-		});
-
-		var newpage = page+1;
-		var currentPage = this.state.currentPage;
-
-		axios
-		.get(
-		`https://www.foodzzo.com/demo/api/app/getUserPosts/71/0?page=${currentPage}`
-		)
-		.then(res => {
-		console.log(res)
-		this.setState({ currentPage: currentPage+1 });
-		});
-	}*/
-
 	getPhotos(page) {
 		this.setState({ loading: true });
 		var currentPage = this.state.currentPage;
 
 		axios
 		.get(
-		`https://www.foodzzo.com/demo/api/app/getUserPosts/71/0?page=${currentPage}`
+		`https://www.foodzzo.com/demo/api/app/getUserPosts/71/3?page=${currentPage}`
 		)
 		.then(res => {			
 			console.log(res);
